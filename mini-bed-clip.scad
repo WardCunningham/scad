@@ -1,11 +1,12 @@
-r = 17.825;
-h = 5;
+r = 17;
+dr = 3;
+h = 10;
 difference(){
-    cylinder(h=5,r=r+1);
-    translate([0,0,-1]) cylinder(h=7,r=r);
-    translate([0,-17,2]) cube([40,20,7],true);
+    cylinder(h=h,r=r+dr);
+    translate([0,0,-1]) cylinder(h=h+2,r=r);
+    translate([0,-17,2]) cube([40,20,2*h+2],true);
 }
-translate([21,0,0])
+translate([r+dr+1,0,0])
     difference() {
         cylinder(h=2,r=3);
         translate([0,0,-1])cylinder(h=4,r=2);
