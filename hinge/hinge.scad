@@ -42,12 +42,12 @@ module platform (z) {
     
 }
 
-module hindge () {
+module hinge () {
     x = 20;
     y = 8;
     z = 13;
     s = 6.5;
-    *difference() {
+    difference() {
         body(x,y,z);
         hole(z,7/2,11/2);
         slot(z);
@@ -58,4 +58,4 @@ module hindge () {
 
 
 
-hindge();
+hinge();
