@@ -1,12 +1,12 @@
 module hole (z,r1,r2) {
-    i = 1.5;
+    i = 2;
     translate([0,0,-1]) cylinder (z+2, r=r1);
     translate([0,0,-1]) cylinder (i+1, r=r2);
     translate([0,0,z-i]) cylinder (i+1, r=r2);
 }
 
 module slot (z) {
-    s = 6.5;
+    s = 6;
     d = 10;
     translate([-d,-10,(z-s)/2]) cube([20,30,s]);
 }
@@ -47,12 +47,12 @@ module hinge () {
     y = 8;
     z = 13;
     s = 6.5;
-    difference() {
+    %difference() {
         body(x,y,z);
-        hole(z,7/2,11/2);
+        #hole(z,6.2/2,10.2/2);
         slot(z);
     }
-    translate([-13.3,-26.07,0])
+    *translate([-13.3,-26.07,0])
         platform(z);
 }
 
