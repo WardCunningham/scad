@@ -8,11 +8,11 @@ difference(){
     translate([0,0,-1]) cylinder(h=h+2,r=r,$fn=90);
     translate([0,-17-2,2]) cube([40,20,2*h+2],true);
 }
-translate([r+dr+1,0,0])
-    difference() {
-        cylinder(h=2,r=3,$fn=24);
-        translate([0,0,-1])cylinder(h=4,r=2,$fn=24);
-    }
+//translate([r+dr+1,0,0])
+//    difference() {
+//        cylinder(h=2,r=3,$fn=24);
+//        translate([0,0,-1])cylinder(h=4,r=2,$fn=24);
+//    }
 }
 
 module tablet () {
@@ -28,9 +28,9 @@ module tablet () {
 }
 
 module socket () {
-    rotate([0,-56,0]) {
+    translate([0,-.5,0]) rotate([0,-56,0]) {
         difference() {
-            scale(1.4) tablet();
+            translate([0,.5,0]) scale(1.4) tablet();
             //translate([-12,-8,-12]) { cube([35,12,35]); }
             tablet();
         }
