@@ -76,7 +76,7 @@ end
 def cube p
   q = (50-p[2])/50
   s = q*1.5+(1-q)*0.5
-  "translate(#{p.inspect})cube(#{s},true);"
+  "translate(#{p.inspect})sphere(#{s/1.414},true,$fn=12);"
 end
 
 def hull p, q
