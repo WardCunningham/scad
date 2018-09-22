@@ -2,17 +2,42 @@ r = 17;
 dr = 3;
 h = 15;
 
+top = -1; // 1 or -1
+
+module slot (p) {
+    translate(p) rotate([0,0,45]) cube([5,5,3],true);
+}
+    
 module clip () {
 difference(){
+    dy = -17-2-4;
     cylinder(h=h,r=r+dr);
     translate([0,0,-1]) cylinder(h=h+2,r=r,$fn=90);
-    translate([0,-17-2,2]) cube([40,20,2*h+2],true);
+    translate([0,dy,2]) cube([40,20,2*h+2],true);
+
+    if (top < 0) {
+      slot([11,15,0]);
+      slot([-11,15,0]);
+      slot([11,15,15]);
+      slot([-11,15,15]);
+    
+      slot([13,dy+11,4]);
+      slot([13,dy+11,11]);
+      slot([-13,dy+11,4]);
+      slot([-13,dy+11,11]);
+    }
 }
-//translate([r+dr+1,0,0])
-//    difference() {
-//        cylinder(h=2,r=3,$fn=24);
-//        translate([0,0,-1])cylinder(h=4,r=2,$fn=24);
-//    }
+
+
+translate([top*(r+dr+3),0,0])
+    difference() {
+        $fn=24;
+        r = 4;
+        cylinder(h=5,r=r);
+        translate([0,0,-1])cylinder(h=7,r=r-1);
+        slot([0,-5,1]);
+        slot([0,-5,3.99]);
+    }
 }
 
 module tablet () {
