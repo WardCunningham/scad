@@ -23,10 +23,6 @@ module brace() {
 
 module clamp(s) {
   w = 5; h = 25;
-  *translate([15,13,18])
-    sphere(3,true,$fn=20);
-  *translate([-15,13,18])
-    sphere(3,true,$fn=20);
   translate([-s,0,2])
   rotate([90,0,90])
     linear_extrude(height = 2*s)
